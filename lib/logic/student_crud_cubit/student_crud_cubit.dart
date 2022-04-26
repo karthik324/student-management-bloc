@@ -36,19 +36,16 @@ class StudentCrudCubit extends Cubit<StudentCrudState> {
   }
 
   void addStudentListUpdated(Box<StudentDB> box, StudentDB student) {
-    emit(AddStudentState());
     DbFunctions.addStudent(student);
     emit(AllStudentState(studentsList: box.values.toList()));
   }
 
   void editStudentListUpdated(Box<StudentDB> box, StudentDB student, int key) {
-    emit(EditStudentState());
     DbFunctions.updateStudent(key, student);
     emit(AllStudentState(studentsList: box.values.toList()));
   }
 
   void deleteStudentListUpdated(Box<StudentDB> box, int key) {
-    emit(DeleteStudentState());
     DbFunctions.deleteStudent(key);
     emit(AllStudentState(studentsList: box.values.toList()));
   }

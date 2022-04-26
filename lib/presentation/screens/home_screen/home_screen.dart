@@ -83,7 +83,6 @@ class HomePage extends StatelessWidget {
               );
             } else {
               final List<StudentDB> datas = state.studentsList;
-              final values = Hive.box<StudentDB>(kStudentBox).values.toList();
               return ListView.separated(
                 physics: const BouncingScrollPhysics(),
                 itemBuilder: ((context, index) {
@@ -133,7 +132,7 @@ class HomePage extends StatelessWidget {
                                 MaterialPageRoute(
                                   builder: (ctx) => StudentEditPage(
                                     index: datas[index].key,
-                                    list: values,
+                                    list: datas,
                                   ),
                                 ),
                               );

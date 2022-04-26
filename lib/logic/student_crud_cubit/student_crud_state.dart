@@ -17,21 +17,6 @@ class AllStudentState extends StudentCrudState {
   List<Object?> get props => [studentsList];
 }
 
-class AddStudentState extends StudentCrudState {
-  @override
-  List<Object?> get props => [];
-}
-
-class EditStudentState extends StudentCrudState {
-  @override
-  List<Object?> get props => [];
-}
-
-class DeleteStudentState extends StudentCrudState {
-  @override
-  List<Object?> get props => [];
-}
-
 class ImageUpdateState extends StudentCrudState {
   final List<StudentDB> studentsList;
   final String? image;
