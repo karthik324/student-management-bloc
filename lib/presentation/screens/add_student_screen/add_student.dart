@@ -46,7 +46,6 @@ class _StudentAddPageState extends State<StudentAddPage> {
               );
               BlocProvider.of<StudentCrudCubit>(context)
                   .addStudentListUpdated(DbFunctions.getBox(), student);
-
               Navigator.pop(context);
             },
             icon: const Icon(
@@ -78,7 +77,6 @@ class _StudentAddPageState extends State<StudentAddPage> {
                 ElevatedButton(
                   onPressed: () {
                     getImage(source: ImageSource.gallery);
-                    // print(state);
                   },
                   child: const Text('Select Image'),
                 ),
