@@ -5,7 +5,7 @@ abstract class SearchBlocState {
   const SearchBlocState();
 }
 
-class SearchResult extends SearchBlocState {
+class SearchResultState extends SearchBlocState {
   final List<StudentDB> studentList;
-  const SearchResult({required this.studentList});
+  const SearchResultState({required this.studentList});
 }

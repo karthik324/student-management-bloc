@@ -21,7 +21,7 @@ class StudentCrudCubit extends Cubit<StudentCrudState> {
       : super(StudentCrudCubitInitial()) {
     emit(AllStudentState(studentsList: list));
     streamSubscription = searchBloc.stream.listen((event) {
-      if (event is SearchResult) {
+      if (event is SearchResultState) {
         if (event.studentList.isNotEmpty) {
           studentListUpdated(event.studentList);
         } else {

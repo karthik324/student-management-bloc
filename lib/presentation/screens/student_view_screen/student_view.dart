@@ -39,7 +39,7 @@ class StudentViewPage extends StatelessWidget {
             Text(
               student.name,
               style: const TextStyle(
-                color: Colors.lightGreen,
+                color: Color.fromARGB(255, 129, 213, 212),
                 fontSize: 35,
               ),
             ),
@@ -47,7 +47,7 @@ class StudentViewPage extends StatelessWidget {
             Text(
               student.place,
               style: const TextStyle(
-                color: Colors.lightGreen,
+                color: Color.fromARGB(255, 129, 213, 212),
                 fontSize: 25,
               ),
             ),
@@ -55,7 +55,7 @@ class StudentViewPage extends StatelessWidget {
             Text(
               student.age.toString(),
               style: const TextStyle(
-                color: Colors.lightGreen,
+                color: Color.fromARGB(255, 129, 213, 212),
                 fontSize: 15,
               ),
             ),

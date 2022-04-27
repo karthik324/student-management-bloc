@@ -1,8 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:student_management_bloc/constants/constants.dart';
 import 'package:student_management_bloc/db/db_functions.dart';
 import 'package:student_management_bloc/db/model/student_db.dart';
 import 'package:student_management_bloc/logic/icon_cubit/icon_cubit_cubit.dart';
@@ -34,12 +32,10 @@ class HomePage extends StatelessWidget {
                     context.read<IconCubitCubit>().changeIcon(myIcon!);
                     if (myIcon == Icons.search) {
                       customSearchBar = TextField(
-                        // autofocus: true,
                         onChanged: (value) {
-                          // print(value);
-                          context
-                              .read<SearchBlocBloc>()
-                              .add(EnterInputState(searchInput: value));
+                          context.read<SearchBlocBloc>().add(
+                                EnterInputEvent(searchInput: value),
+                              );
                         },
                         decoration: const InputDecoration(
                           enabledBorder: UnderlineInputBorder(
@@ -63,7 +59,7 @@ class HomePage extends StatelessWidget {
                         ),
                       );
                     } else {
-                      context.read<SearchBlocBloc>().add(ClearInputState());
+                      context.read<SearchBlocBloc>().add(ClearInputEvent());
                       customSearchBar = const Text('Student Manage');
                     }
                   },
@@ -102,7 +98,7 @@ class HomePage extends StatelessWidget {
                           ),
                         );
                       },
-                      tileColor: Colors.lightGreen[300],
+                      tileColor: const Color.fromARGB(255, 129, 213, 212),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -167,7 +163,7 @@ class HomePage extends StatelessWidget {
                                               );
                                           context
                                               .read<SearchBlocBloc>()
-                                              .add(ClearInputState());
+                                              .add(ClearInputEvent());
                                           Navigator.pop(context);
                                         },
                                         child: const Text('Yes'),

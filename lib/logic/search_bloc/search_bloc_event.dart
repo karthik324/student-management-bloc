@@ -5,9 +5,9 @@ abstract class SearchBlocEvent {
   const SearchBlocEvent();
 }
 
-class EnterInputState extends SearchBlocEvent {
+class EnterInputEvent extends SearchBlocEvent {
   final String searchInput;
-  const EnterInputState({required this.searchInput});
+  const EnterInputEvent({required this.searchInput});
 }
 
-class ClearInputState extends SearchBlocEvent {}
+class ClearInputEvent extends SearchBlocEvent {}

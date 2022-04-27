@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -17,15 +19,23 @@ void main() async {
   await Hive.openBox<StudentDB>(kStudentBox);
   runApp(
     MyApp(
-      // iconCubit: IconCubitCubit(),
       searchBloc: SearchBlocBloc(),
     ),
   );
 }
 
+bool randomNumGenerator(int randomNum) {
+  Random random = Random();
+  randomNum = random.nextInt(2);
+  if (randomNum == 1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 class MyApp extends StatelessWidget {
   final SearchBlocBloc searchBloc;
-  // final IconCubitCubit iconCubit;
   const MyApp({Key? key, required this.searchBloc}) : super(key: key);
 
   @override
@@ -45,9 +55,7 @@ class MyApp extends StatelessWidget {
         home: HomePage(),
         debugShowCheckedModeBanner: false,
         title: 'Student Manage With BLoC',
-        theme: ThemeData(
-          primarySwatch: Colors.lightGreen,
-        ),
+        theme: randomNumGenerator(1) ? ThemeData.dark() : ThemeData.light(),
       ),
     );
   }
