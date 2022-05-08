@@ -50,7 +50,7 @@ class _StudentAddPageState extends State<StudentAddPage> {
             },
             icon: const Icon(
               Icons.save,
-              color: Colors.blue,
+              color: Colors.white,
             ),
             iconSize: 24,
             tooltip: 'Save',

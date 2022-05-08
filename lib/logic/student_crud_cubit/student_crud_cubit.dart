@@ -20,10 +20,10 @@ class StudentCrudCubit extends Cubit<StudentCrudState> {
   StudentCrudCubit({required this.list, required this.searchBloc})
       : super(StudentCrudCubitInitial()) {
     emit(AllStudentState(studentsList: list));
-    streamSubscription = searchBloc.stream.listen((event) {
-      if (event is SearchResultState) {
-        if (event.studentList.isNotEmpty) {
-          studentListUpdated(event.studentList);
+    streamSubscription = searchBloc.stream.listen((state) {
+      if (state is SearchResultState) {
+        if (state.studentList.isNotEmpty) {
+          studentListUpdated(state.studentList);
         } else {
           emit(NoResultsState());
         }
